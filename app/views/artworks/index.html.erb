@@ -1,0 +1,26 @@
+<table>
+	<% @artworks.each do |artwork| %>
+		<tr><td><%= link_to image_tag(artwork.image.url(:large)), "artworks/"+artwork.id.to_s %></td>
+		<td><strong><%= artwork.title %></strong></td>
+		
+		<!-- Admin Options -->
+		<% if current_user && current_user.admin %>
+			<td><%= link_to "Edit", edit_artwork_path(artwork) %></td>
+			<td><%= link_to 'Delete', artwork, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<% end %> 		
+	</tr>
+	<% end %>
+</table>
+
+<!-- Admin Options -->
+<% if current_user && current_user.admin %>
+	<style>
+		.larger a{
+			font-size: 1.7em;
+			text-align: center;
+		}
+	</style>
+	<div class="larger">
+			<%= link_to "Upload Artwork", new_artwork_path %>
+	</div>
+<% end %>

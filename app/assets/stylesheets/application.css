@@ -1,0 +1,90 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body{
+	background-image: url("cover.jpg");
+	background-attachment: fixed;
+}
+p{
+	font-size: 1.5em;
+	line-height: 1.3em
+}
+h1{
+	font-size: 3em;
+	text-align: center;
+}
+h2{
+	font-size: 2.2em;
+}
+h3{
+	font-size: 1.5em;
+}
+
+table{
+	font-size: 1.5em;
+	
+}
+
+.container {
+	margin: auto;
+  width: 60%;
+  border:1em solid #663300;
+  padding: 2em;
+	background-color: rgba(255,255,255, 0.8);
+}
+
+.navbar ul{
+	background-color: #A38566;
+	list-style-type: none;
+	margin: auto;
+	width: 80%;
+	font-size: 3em;
+	overflow: hidden;
+}
+
+.navbar li{
+		float: left;
+}
+
+.navbar a{
+	display: block;
+	text-align: center;
+	padding: 1em;
+	width: 4em;
+}
+
+.navbar a:hover{
+	color: #660066;
+	background-color: #FFFFFF
+}
+
+ul.botbar{
+	font-size: 1.2em;
+}
+
+hr{
+	border-style: groove;
+	border-width: 10px;	
+}
+
+#notice {
+	margin: auto;
+	text-align: center;
+	padding: 1em;
+	width: 40%;
+	border:0.6em solid #663300;
+	background-color: rgba(255,255,255, 0.8);
+}

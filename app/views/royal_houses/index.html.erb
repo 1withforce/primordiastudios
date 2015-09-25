@@ -1,0 +1,82 @@
+<h1>Royal Houses</h1>
+<p>
+	In an upcoming project, Primordia Studios will be designing a game in a unique fantasy
+	universe. In this ancient world, three alliances vie for control- each consisting of multiple
+	noble lines that can trace their lineage back millennia to the dawn of magic. A major
+	part of the game will be interacting with people from different houses, and knowing how
+	best to respond to their motives and morals. 
+</p>
+<p>
+	Below you will find a few of the houses along with their member alliance with links to brief
+	description of their history.
+</p>
+<h2>Ivory Shield</h2>
+<p>
+	Founded on the pillars of Chivalry and Justice, the Ivory Shield seeks to keep its citizenry safe from the void and, more importantly, from itself. In this alliance the Royal Houses have absolute control over the government with very little involvement from the common people. The Ivory Shield is ruled by an elected absolute monarch and a parliament of his/her Royal delegation. The monarchy is reevaluated every thirty years and no single line can hold power for more than three cycles, no ruler for more than twenty years. Some monarchs have tried to overstay their welcome, but throughout history these individuals have been unsuccessful and served merely to disgrace their houses and discourage future would-be usurpers.
+</p>
+<p>
+	The Ivory shield tolerates Arcane practice, but just barely. Some constituent houses, namely Clan Erinzil, have a strong opposition to the Arcane dating back to the days before the Infusion. The Ivory Shield have an impressive assortment of priests, paladins, knights, and magehunters (e.g. blueguard & whiteguarde). As such, they are a bastion of strength when it comes to fighting the Varaxi.
+</p>
+<p>
+	Buildings in the Ivory Domain are usually styled after castles, built to appear sturdy and live up to their looks during a siege. The Ivory Domain has Territory in Minor Rothic, Nova Roma, and nearly every island in the Meridian Auri and Common Sea.
+</p>
+
+<h2>Pentaegrax</h2>
+<p>
+	Founded by scholars and lovers of Logic yet shrouded in secrecy and ritual, the Pentaegrax is a unique blend of mysticism and science. To an outsider, mages of the order appear to babble nonsense to each other and put great pride into meaningless symbols and designs. Amongst its members, the meaningless babble consists of technical terms describing the science behind the Arcane. All citizens are trained in magecraft and scholarly pursuits, encouraging them to look above acquisition of wealth. In this world, knowledge truly is power- and there are none more knowledgeable than the educated elite of the Pentaegrax.
+</p>
+<p>
+	Essentially every citizen in the Pentaegrax domain can trace his/her bloodline to some ancestor of the member houses (documents are religiously well-kept) . One can be accepted back into the throes of royalty by excelling in scholarly practice and/or through the quality of research published to the Dominion Press. Failure of heirs to produce anything worthwhile results in that particular branch fading back into obscurity until another dedicated scholar lifts herself back into the halls of learning through perseverance and strength of mind.
+</p>
+<p>
+	The Pentaegrax elect a Magistrix who serves for life or until he/she calls for a replacement. During some periods, the Magistrix would pick his/her own successor but this often led to problems. The Magistrix has a role similar to a president but with an explicit duty to dissolve party factions within the alliance.
+</p>
+<p>
+	The Pentaegrax possess all of the northern continent of Omniroth and some scattered island territories. They are the only faction to ever establish territories on other planets, but these have long since been abandoned due to the Arcane impotence that comes with distance from Newerth. The architecture in Omniroth is purposely confusing, inefficient, and disorienting. The idea is to make the construction of mental maps a natural trait of citizens and encourage translocation whenever possible- but navigating the buildings serves as a major headache for foreign travelers and the arcane-inept.
+</p>
+
+<h2>Compact of Rothic</h2>
+<p>
+	The largest and broadest alliance, the Compact of Rothic, unlike every other organised government in this time, clings to the ideals of democracy and capitalism from ages past. Its member houses get their power from the companies they found and colleges they manage. Citizens of Greater Rothic all have equal voting power- noble or common. Membership in some Houses can be earned rather than solely given by birth, as such many houses have become more like guilds than family lineages. 
+</p>
+<p>
+	The Compact of Rothic, often referred to as The Compact or even CoR (pronounced “core”), embraces all walks of life and branches of Primordial Physics- but not Void magic (Void magic is technically not part of the Primordial Physics). As such, there are orders of Paladins and Wizards coexisting with each other and even  and sharing resources. Because of this diversity and large middle-class populace, the CoR generally has the best fighting force of any alliance- however democratic process often hinders its effectiveness against foes who do not face the same restraints and moral obligations.
+</p>
+<p>
+Due to their high population concentration and aptitude for acquiring wealth, skyscrapers adorned with gold frames and sapphire windows are a common site in the major CoR cities. The CoR has domain over Greater Rothic, Northern Fye, and many Islands in the Emerald Sea. 
+</p>
+<h2>List of Royal Houses</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+			<th> | </th>
+      <th>Alliance</th>
+      <!-- <th>Description</th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @royal_houses.each do |royal_house| %>
+      <tr>
+        <td><%= royal_house.name %></td>
+				<td> | </td>
+        <td><%= royal_house.alliance %></td>
+        <!-- <td><%= royal_house.description %></td> -->
+        <td><%= link_to 'Show', royal_house %></td>
+
+				<!-- Admin Options -->
+				<% if current_user && current_user.admin %>
+		      <td><%= link_to 'Edit', edit_royal_house_path(royal_house) %></td>
+		      <td><%= link_to 'Destroy', royal_house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+				<% end %>	
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<!-- Admin Options -->
+<% if current_user && current_user.admin %>
+	<%= link_to 'New Royal house', new_royal_house_path %>
+<% end %>

@@ -1,0 +1,20 @@
+<h1>Users</h1>
+<table>
+	<tr>
+		<th>id</th><th>name</th><th>admin</th>
+		<% if @is_admin %>
+			<th>email</th>
+			<!-- Extra header for delete option in table body -->
+			<th></th>
+		<% end %>
+	</tr>
+	<% @users.each do |user| %>
+		<tr>
+			<td><%= user.id %></td><td><%= user.name %></td><td><%= user.admin %></td>
+			<% if @is_admin %>
+				<th><%= user.email %></th>
+				<th><%=  link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></th>				
+			<% end %>
+		</tr>
+	<% end %>
+</table>

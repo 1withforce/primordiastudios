@@ -1,0 +1,16 @@
+<h1><%= @artwork.title %></h1>
+
+<%= link_to image_tag(@artwork.image.url) %><br>
+<h2>Artist: <%= @artwork.creator %></h2>
+<h2>Medium: <%= @artwork.medium %></h2>
+
+<!-- html.safe to allow embeded links and style when writing descriptions -->
+<p><%= @artwork.description.html_safe %></p>
+
+<%= link_to "Back", artworks_path %>
+
+<!-- Admin Options -->
+<% if current_user && current_user.admin %>
+	| <%= link_to "Edit", edit_artwork_path %>
+<% end %>
+

@@ -1,0 +1,20 @@
+<p>
+  <strong>Name:</strong>
+  <%= @royal_house.name %>
+</p>
+
+<p>
+  <strong>Alliance:</strong>
+  <%= @royal_house.alliance %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @royal_house.description %>
+</p>
+
+<!-- Admin Option -->
+<% if current_user && current_user.admin %>
+	<%= link_to 'Edit', edit_royal_house_path(@royal_house) %> |
+<% end %>
+<%= link_to 'Back', royal_houses_path %>

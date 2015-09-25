@@ -1,0 +1,12 @@
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+<% end -%>
+
+<p><h1>Primordia Studios</h1></p>
+<p>
+	<% if current_user %>
+		<h2><%= "Welcome "+current_user.name %></h2> 
+		<%= link_to("Not "+current_user.name+"?", logout_path) %> 
+	<% end %>
+</p>
+
