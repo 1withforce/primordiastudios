@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150921214504) do
+ActiveRecord::Schema.define(version: 20150925190205) do
 
   create_table "artworks", force: :cascade do |t|
     t.string   "title"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20150921214504) do
     t.datetime "image_updated_at"
   end
 
+  create_table "games", force: :cascade do |t|
+    t.string   "title"
+    t.string   "platform"
+    t.string   "genre"
+    t.string   "link"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "photos", force: :cascade do |t|
     t.string "description"
     t.string "content_type"
@@ -36,6 +46,15 @@ ActiveRecord::Schema.define(version: 20150921214504) do
   create_table "royal_houses", force: :cascade do |t|
     t.string   "name"
     t.string   "alliance"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "titles", force: :cascade do |t|
+    t.string   "platform"
+    t.string   "genre"
+    t.string   "link"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

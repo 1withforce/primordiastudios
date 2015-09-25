@@ -32,10 +32,18 @@ h2{
 h3{
 	font-size: 1.5em;
 }
-
 table{
+	border: 5px ridge #663300;
+}
+
+td, th{
 	font-size: 1.5em;
-	
+	border: 1px solid #663300;
+	padding: 0.3em;
+}
+
+a{
+	font-size: 1.5em;
 }
 
 .container {
@@ -51,7 +59,7 @@ table{
 	list-style-type: none;
 	margin: auto;
 	width: 80%;
-	font-size: 3em;
+	font-size: 2em;
 	overflow: hidden;
 }
 

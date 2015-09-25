@@ -50,7 +50,6 @@ Due to their high population concentration and aptitude for acquiring wealth, sk
   <thead>
     <tr>
       <th>Name</th>
-			<th> | </th>
       <th>Alliance</th>
       <!-- <th>Description</th> -->
     </tr>
@@ -60,7 +59,6 @@ Due to their high population concentration and aptitude for acquiring wealth, sk
     <% @royal_houses.each do |royal_house| %>
       <tr>
         <td><%= royal_house.name %></td>
-				<td> | </td>
         <td><%= royal_house.alliance %></td>
         <!-- <td><%= royal_house.description %></td> -->
         <td><%= link_to 'Show', royal_house %></td>

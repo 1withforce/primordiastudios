@@ -1,0 +1,27 @@
+<!-- Listing of available games -->
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Platform</th>
+		<th>Page Link</th>
+	</tr>
+	<% @games.each do |game| %>
+		<tr>
+			<td><%= game.title %></td>
+			<td><%= game.platform %></td>
+			<td><%= link_to "show", game %></td>
+			<!-- Admin Options -->
+			<% if current_user && current_user.admin %>
+				<td><%= link_to 'edit', edit_game_path(game) %></td>
+				<td><%= link_to 'destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<% end %>
+		</tr>
+	<% end %>
+</table>	
+
+<!-- Admin Option -->
+<% if current_user && current_user.admin %>
+	<p>
+		<%= link_to 'Create New Entry', new_game_path %>
+	</p>
+<% end %>
