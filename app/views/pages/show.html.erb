@@ -1,0 +1,14 @@
+<h1> Page <%= @page.page_num %> </h1>
+<% @previous_page = @story.pages.find_by page_num: @page.page_num-1 %>
+<% @next_page = @story.pages.find_by page_num: @page.page_num+1 %>
+
+<%= render 'page_control' %>
+
+<%= display_image(@page.image) %>
+<p>
+	<%= @page.text %>
+</p>
+<br>
+
+<%= render 'page_control' %>
+

@@ -79,6 +79,10 @@ a{
 	background-color: #FFFFFF
 }
 
+.center{
+	text-align: center;
+}
+
 ul.botbar{
 	font-size: 1.2em;
 }

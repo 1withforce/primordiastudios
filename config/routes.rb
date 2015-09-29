@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :photos, :royal_houses, :users, :artworks, :games
-  get 'photo_admin/new'
+
+	resources :stories do
+		resources :pages
+	end
 
 	get '/signup' => 'users#new'
 

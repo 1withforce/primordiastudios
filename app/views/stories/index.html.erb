@@ -1,0 +1,19 @@
+<h1>Stories</h1>
+<div class='center'>
+<table>
+<p>Click the cover art to read the story</p>
+<tr><th>Cover</th><th>Title</th></tr>
+<% @stories.each do |story| %>
+	<tr>
+		<td><%= link_to image_tag(story.cover.url(:large)), story_path(story.id) %></td>
+		<td><%= story.title %></td>
+	</tr>
+<% end %>
+</table>
+
+<!-- Admin Options -->
+<% if current_user && current_user.admin %>
+	<br>
+	<%= link_to "Create New Story", new_story_path %>
+<% end %>
+</div>

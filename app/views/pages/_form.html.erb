@@ -1,0 +1,21 @@
+<h2><%= @story.title %>, page <%= @page.id %></h2>
+<%= form_for([@story, @story.pages.build]) do |f| %>
+	<p>
+		<% if @page.page_num %>
+			<% page_num = @page.page_num  %> 
+		<% else %>
+			<% page_num = @story.pages.order(:page_num).last.page_num+1 %>
+		<% end %>
+		<%= f.label "Page number : " + page_num.to_s %>
+		<%= f.hidden_field :page_num, :value => page_num %>
+	</p>
+	<p>
+		<%= f.label :image %><br>
+		<%= f.file_field :image%>
+	</p>
+	<p>
+		<%= f.label :text %><br>
+		<%= f.text_area :text%>
+	</p>
+	<%= f.submit %>
+<% end %>

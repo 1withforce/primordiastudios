@@ -1,0 +1,7 @@
+<h1><%= @story.title %></h1>
+<div class='center'>
+	<%= link_to display_image(@story.cover), story_pages_path(@story.id) %><br>
+	<% if current_user && current_user.admin %>
+		<%= link_to "Edit Title or Cover", edit_story_path(@story.id) %>
+	<% end %>
+</div

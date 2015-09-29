@@ -1,0 +1,10 @@
+<div class='center'>
+<% if @previous_page %>
+		<%= link_to "Previous", story_page_path(:story_id=>@story.id, :id=>@previous_page.id) %>
+	<% end %>
+	|
+	<% if @next_page %>
+		<%= link_to "Next", story_page_path(:story_id=>@story.id, :id=>@next_page.id) %>
+	<% end %>
+</div>
+

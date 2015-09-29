@@ -1,0 +1,17 @@
+<% if @pages %>
+	<% @pages.order(:page_num) %>
+	<table>
+	<% @pages.each do |page| %>
+		<tr>
+			<td><%= link_to "Page "+page.page_num.to_s, story_page_path(:story_id =>  @story.id, :id => page.id) %></td>
+			<!-- Admin Options -->
+			<% if current_user && current_user.admin %>
+				<td><%= link_to "Edit", edit_story_page_path(:story_id=>@story.id, :id=>page.id) %></td>
+				<td><%= link_to "Delete", story_page_path(:story_id=>@story.id, :id=>page.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<% end %>
+		</tr>
+	<% end %>
+	</table>
+<% else %>
+	<h2>No pages to display</h2>
+<% end %>  

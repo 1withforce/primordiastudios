@@ -15,6 +15,7 @@ class GamesController < ApplicationController
 	end
 	
 	def destroy
+		@game.destroy
 	end
 
 	def create

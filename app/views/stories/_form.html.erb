@@ -1,0 +1,13 @@
+<%= form_for(@story, :multipart=>true) do |f| %>
+	
+	<p>
+		<%= f.label :title %><br>
+		<%= f.text_field :title %>
+	</p>
+	<p>
+		<%= f.label :cover %><br>
+		<%= f.file_field :cover %>
+	</p>
+	<br>
+	<%= f.submit %>
+<% end %>
