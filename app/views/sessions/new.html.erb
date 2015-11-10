@@ -5,11 +5,14 @@
 			<tr><td>Email:</td><td><%= text_field_tag :email %></td></tr>
 			<tr><td>Password:</td><td><%= password_field_tag :password %></td></tr>
 		</table>
+		<div class='center'>
+			<%= recaptcha_tags %>
+		</div>
 		<br>
 		<%= submit_tag "Submit" %>
 	<% end %>
 </p>
 <p>
-	<strong>Don't have an account? <%= link_to 'Sign up', signup_path %></strong>
+	<strong>Don't have an account? <%= link_to 'Sign up', signup_path, "data-no-turbolink" => true, class: "btn btn-primary btn-med" %></strong>
 </p>
 	

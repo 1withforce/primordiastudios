@@ -14,7 +14,7 @@ class PagesController < ApplicationController
 
 	def create
 		@page = @story.pages.create(page_params)
-		redirect_to story_path(@story)
+		redirect_to story_pages_path(@story)
 	end 
 	
 	def show

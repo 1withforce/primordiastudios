@@ -34,6 +34,7 @@ h3{
 }
 table{
 	border: 5px ridge #663300;
+	margin: auto;
 }
 
 td, th{
@@ -59,8 +60,9 @@ a{
 	list-style-type: none;
 	margin: auto;
 	width: 80%;
-	font-size: 2em;
+	font-size: 1.5em;
 	overflow: hidden;
+	
 }
 
 .navbar li{

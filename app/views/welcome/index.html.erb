@@ -6,7 +6,7 @@
 <p>
 	<% if current_user %>
 		<h2><%= "Welcome "+current_user.name %></h2> 
-		<%= link_to("Not "+current_user.name+"?", logout_path) %> 
+		<%= link_to("Not "+current_user.name+"?", logout_path, "data-no-turbolink" => true, class: "btn btn-primary btn-med") %> 
 	<% end %>
 </p>
 

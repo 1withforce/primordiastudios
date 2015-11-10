@@ -36,6 +36,7 @@ class StoriesController < ApplicationController
 	
 	def destroy
 		@story.destroy
+		redirect_to stories_path, notice: "Story successfully destroyed"
 	end
 
 

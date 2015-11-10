@@ -3,8 +3,9 @@
 <% @next_page = @story.pages.find_by page_num: @page.page_num+1 %>
 
 <%= render 'page_control' %>
-
-<%= display_image(@page.image) %>
+<div class='center'>
+	<%= display_image(@page.image) %>
+</div>
 <p>
 	<%= @page.text %>
 </p>

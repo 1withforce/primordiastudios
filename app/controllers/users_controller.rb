@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 	before_action :authorize_admin, only: [:destroy]
 
 	def new
+		@user=User.new
 	end
 
 	def index
@@ -16,19 +17,22 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		user = User.new(user_params)
-		user.admin=false
-		if user.save
-			session[:user_id]=user.id
-			redirect_to '/'
+		@user = User.new(user_params)
+		@user.admin = false
+		if verify_recaptcha(model: @user, message: "Invalid CAPTCHA" )
+			session[:user_id]=@user.id
+			@user.save
 		else
-			redirect_to '/signup'
+			redirect_to signup_path, notice: "Invalid CAPTCHA"
 		end
 	end
 
 	def destroy
 		user = User.find(params[:id])
 		user_name = user.name
+		if current_user == user
+			session.clear
+		end 
 		user.destroy
 		redirect_to users_path, notice: "User '"+user_name+"' deleted"
 	end

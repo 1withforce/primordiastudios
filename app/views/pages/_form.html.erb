@@ -1,11 +1,18 @@
-<h2><%= @story.title %>, page <%= @page.id %></h2>
 <%= form_for([@story, @story.pages.build]) do |f| %>
+	<!-- Edit -->
+	<% if @page.page_num %>
+		<% page_num = @page.page_num  %> 
+	
+	<!-- Next Page -->
+	<% elsif @story.pages.length > 0 %>
+		<% page_num = @story.pages.order(:page_num).last.page_num+1 %>
+		
+	<!-- First Page -->
+	<% else %>
+		<% page_num = 1 %>
+	<% end %>
+	<h2><%= @story.title %>, page <%= page_num %></h2>
 	<p>
-		<% if @page.page_num %>
-			<% page_num = @page.page_num  %> 
-		<% else %>
-			<% page_num = @story.pages.order(:page_num).last.page_num+1 %>
-		<% end %>
 		<%= f.label "Page number : " + page_num.to_s %>
 		<%= f.hidden_field :page_num, :value => page_num %>
 	</p>
